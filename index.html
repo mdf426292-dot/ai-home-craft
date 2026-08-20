@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice Reader Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto 20px auto;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="content-to-read">
+        <h1>Welcome to My Website</h1>
+        <p>Hello bhai! Yeh hamari website ka voice reader feature hai. Is button par click karke aap is text ko aawaz mein sun sakte hain.</p>
+    </div>
+
+    <button onclick="speakText()">🔊 Listen to Website</button>
+
+    <script>
+        function speakText() {
+            // Get the text content from the div
+            const textToSpeech = document.getElementById("content-to-read").innerText;
+            
+            // Check if browser supports speech synthesis
+            if ('speechSynthesis' in window) {
+                const utterance = new SpeechSynthesisUtterance(textToSpeech);
+                utterance.lang = 'en-US'; // Aap chahe toh 'hi-IN' bhi kar sakte hain Hindi ke liye
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("Sorry, your browser does not support text to speech!");
+            }
+        }
+    </script>
+
+</body>
+</html>
