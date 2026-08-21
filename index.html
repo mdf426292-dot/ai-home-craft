@@ -51,4 +51,6 @@
             // Check if browser supports speech synthesis
             if ('speechSynthesis' in window) {
                 const utterance = new SpeechSynthesisUtterance(textToSpeech);
-                utterance.lang = 
+                utterance.lang = utterance.lang = 'hi-IN';
+window.speechSynthesis.speak(utterance);
+                
