@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Old Money AI Home Craft</title>
+    <title>THE OLD MONEY AI HOME CRAFT</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,19 +23,23 @@
         }
         h1 {
             color: #1a1a1a;
-            font-size: 28px;
+            font-size: 26px;
             margin-bottom: 10px;
         }
         .tagline {
             color: #666;
-            font-size: 16px;
+            font-size: 15px;
             margin-bottom: 20px;
         }
-        p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #444;
+        .info-box {
+            background-color: #f1f3f5;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: left;
             margin-bottom: 20px;
+            line-height: 1.8;
+            font-size: 15px;
+            color: #222;
         }
         .lang-select {
             padding: 8px 12px;
@@ -68,21 +72,24 @@
 <body>
 
     <div class="container">
-        <h1>The Old Money AI Home Craft</h1>
-        <div class="tagline">Classic Elegance meets Modern AI Technology</div>
+        <h1>THE OLD MONEY AI HOME CRAFT</h1>
+        <div class="tagline">CLASSIC ELEGANCE MEETS MODERN AI TECHNOLOGY</div>
         
         <div>
-            <label for="langPicker"><b>Select Language (World Languages):</b></label><br><br>
+            <label for="langPicker"><b>SELECT LANGUAGE (WORLD LANGUAGES):</b></label><br><br>
             <select id="langPicker" class="lang-select">
                 <!-- Languages will load automatically -->
             </select>
         </div>
 
-        <p id="speech-text">
-            Hello bhai! Welcome to The Old Money AI Home Craft. This voice reader now supports world languages. You can select any language from the dropdown above and listen to the website text instantly.
-        </p>
+        <div class="info-box" id="speech-text">
+            <b>NAME:</b> MD. FARHAN<br>
+            <b>FATHER NAME:</b> ABDUL RAZZAK<br>
+            <b>MOTHER NAME:</b> SHABANA PARVEEN<br>
+            <b>ADDRESS:</b> MAHBUB CHOWK, GHORTHAMBHA, RAJDHANWAR, GIRIDIH, JHARKHAND
+        </div>
 
-        <button class="btn" onclick="speakText()">🔊 Listen to Website</button>
+        <button class="btn" onclick="speakText()">🔊 LISTEN TO WEBSITE</button>
     </div>
 
     <script>
@@ -93,7 +100,7 @@
             voices = window.speechSynthesis.getVoices();
             langPicker.innerHTML = "";
             
-            voices.forEach((voice, index) => {
+            voices.voices?.forEach?.((voice, index) => {}) || voices.forEach((voice, index) => {
                 const option = document.createElement("option");
                 option.value = index;
                 option.textContent = `${voice.name} (${voice.lang})`;
