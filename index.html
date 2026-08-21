@@ -53,4 +53,130 @@
                 const utterance = new SpeechSynthesisUtterance(textToSpeech);
                 utterance.lang = utterance.lang = 'hi-IN';
 window.speechSynthesis.speak(utterance);
-                
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Old Money AI Home Craft</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a1a1a;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        .tagline {
+            color: #666;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #444;
+            margin-bottom: 20px;
+        }
+        .lang-select {
+            padding: 8px 12px;
+            font-size: 15px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            width: 100%;
+            max-width: 300px;
+            cursor: pointer;
+        }
+        .btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: block;
+            margin: 0 auto;
+        }
+        .btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>The Old Money AI Home Craft</h1>
+        <div class="tagline">Classic Elegance meets Modern AI Technology</div>
+        
+        <!-- Dynamic Language Selector for All World Languages -->
+        <div>
+            <label for="langPicker"><b>Select Language (World Languages):</b></label><br><br>
+            <select id="langPicker" class="lang-select">
+                <!-- Languages will load automatically via JavaScript -->
+            </select>
+        </div>
+
+        <p id="speech-text">
+            Hello bhai! Welcome to The Old Money AI Home Craft. This voice reader now supports world languages. You can select any language from the dropdown above and listen to the website text instantly.
+        </p>
+
+        <button class="btn" onclick="speakText()">🔊 Listen to Website</button>
+    </div>
+
+    <script>
+        let voices = [];
+        const langPicker = document.getElementById("langPicker");
+
+        function populateVoiceList() {
+            voices = window.speechSynthesis.getVoices();
+            langPicker.innerHTML = "";
+            
+            // Sort voices alphabetically by language name/code
+            voices.forEach((voice, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                langPicker.appendChild(option);
+            });
+        }
+
+        populateVoiceList();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+
+        function speakText() {
+            const text = document.getElementById("speech-text").innerText;
+            const selectedIndex = langPicker.value;
+            
+            const speech = new SpeechSynthesisUtterance(text);
+            if (voices[selectedIndex]) {
+                speech.voice = voices[selectedIndex];
+            }
+            
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+
+</body>
+</html>
+
