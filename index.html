@@ -1,71 +1,98 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE OLD MONEY AI HOME CRAFT</title>
+    <title>THE OLD MONEY AI HOME CRAFT - INTERIOR GALLERY</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f4f9;
             color: #333;
             text-align: center;
             padding: 20px;
             margin: 0;
         }
         .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: #ffffff;
-            padding: 30px;
+            max-width: 800px;
+            margin: 30px auto;
+            background: #fff;
+            padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
         h1 {
-            color: #1a1a1a;
+            color: #b8860b;
             font-size: 26px;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
         .tagline {
-            color: #666;
-            font-size: 15px;
-            margin-bottom: 20px;
+            color: #777;
+            font-size: 14px;
+            margin-bottom: 25px;
+            text-transform: uppercase;
+        }
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+        .gallery-item {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            transition: transform 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.05);
         }
         .info-box {
-            background-color: #f1f3f5;
+            background-color: #fafafa;
             padding: 20px;
             border-radius: 8px;
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             line-height: 1.8;
             font-size: 15px;
-            color: #222;
+            border: 1px solid #eee;
         }
         .lang-select {
-            padding: 8px 12px;
-            font-size: 15px;
+            padding: 10px;
+            font-size: 14px;
             border-radius: 6px;
             border: 1px solid #ccc;
             margin-bottom: 20px;
             width: 100%;
-            max-width: 300px;
+            max-width: 350px;
             cursor: pointer;
         }
         .btn {
-            background-color: #28a745;
+            background-color: #b8860b;
             color: white;
             border: none;
             padding: 12px 24px;
             font-size: 16px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
             transition: background 0.3s ease;
             display: block;
             margin: 0 auto;
         }
         .btn:hover {
-            background-color: #218838;
+            background-color: #996e09;
+        }
+        @media (max-width: 600px) {
+            .image-gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .gallery-item {
+                height: 150px;
+            }
+            h1 { font-size: 20px; }
         }
     </style>
 </head>
@@ -73,12 +100,33 @@
 
     <div class="container">
         <h1>THE OLD MONEY AI HOME CRAFT</h1>
-        <div class="tagline">CLASSIC ELEGANCE MEETS MODERN AI TECHNOLOGY</div>
+        <div class="tagline">20 PREMIUM INTERIOR DESIGNS GALLERY</div>
         
+        <div class="image-gallery">
+            <img src="https://i.ibb.co/r6L7v9x/1.jpg" alt="Interior Design 1" class="gallery-item">
+            <img src="https://i.ibb.co/80dKzQh/2.jpg" alt="Interior Design 2" class="gallery-item">
+            <img src="https://i.ibb.co/7vXzW3C/3.jpg" alt="Interior Design 3" class="gallery-item">
+            <img src="https://i.ibb.co/dWF6K5b/4.jpg" alt="Interior Design 4" class="gallery-item">
+            <img src="https://i.ibb.co/B3t5Z9L/5.jpg" alt="Interior Design 5" class="gallery-item">
+            <img src="https://i.ibb.co/Fp8m4Z6/6.jpg" alt="Interior Design 6" class="gallery-item">
+            <img src="https://i.ibb.co/P7mKzQh/7.jpg" alt="Interior Design 7" class="gallery-item">
+            <img src="https://i.ibb.co/9sWzX3C/8.jpg" alt="Interior Design 8" class="gallery-item">
+            <img src="https://i.ibb.co/xYF6K5b/9.jpg" alt="Interior Design 9" class="gallery-item">
+            <img src="https://i.ibb.co/tZ3t5Z9/10.jpg" alt="Interior Design 10" class="gallery-item">
+            <img src="https://i.ibb.co/vFp8m4Z/11.jpg" alt="Interior Design 11" class="gallery-item">
+            <img src="https://i.ibb.co/mP7mKzQ/12.jpg" alt="Interior Design 12" class="gallery-item">
+            <img src="https://i.ibb.co/sWzX3C9/13.jpg" alt="Interior Design 13" class="gallery-item">
+            <img src="https://i.ibb.co/YF6K5bd/14.jpg" alt="Interior Design 14" class="gallery-item">
+            <img src="https://i.ibb.co/Z3t5Z9L/15.jpg" alt="Interior Design 15" class="gallery-item">
+            <img src="https://i.ibb.co/Fp8m4Z6/16.jpg" alt="Interior Design 16" class="gallery-item">
+            <img src="https://i.ibb.co/P7mKzQh/17.jpg" alt="Interior Design 17" class="gallery-item">
+            <img src="https://i.ibb.co/9sWzX3C/18.jpg" alt="Interior Design 18" class="gallery-item">
+            <img src="https://i.ibb.co/xYF6K5b/19.jpg" alt="Interior Design 19" class="gallery-item">
+            <img src="https://i.ibb.co/tZ3t5Z9/20.jpg" alt="Interior Design 20" class="gallery-item">
+        </div>
+
         <div>
-            <label for="langPicker"><b>SELECT LANGUAGE (WORLD LANGUAGES):</b></label><br><br>
             <select id="langPicker" class="lang-select">
-                <!-- Languages will load automatically -->
             </select>
         </div>
 
@@ -89,7 +137,7 @@
             <b>ADDRESS:</b> MAHBUB CHOWK, GHORTHAMBHA, RAJDHANWAR, GIRIDIH, JHARKHAND
         </div>
 
-        <button class="btn" onclick="speakText()">🔊 LISTEN TO WEBSITE</button>
+        <button class="btn" onclick="speakText()">🔊 LISTEN TO DETAILS</button>
     </div>
 
     <script>
@@ -100,7 +148,7 @@
             voices = window.speechSynthesis.getVoices();
             langPicker.innerHTML = "";
             
-            voices.voices?.forEach?.((voice, index) => {}) || voices.forEach((voice, index) => {
+            voices.forEach((voice, index) => {
                 const option = document.createElement("option");
                 option.value = index;
                 option.textContent = `${voice.name} (${voice.lang})`;
