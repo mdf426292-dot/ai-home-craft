@@ -3,101 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE OLD MONEY AI HOME CRAFT - INTERIOR GALLERY</title>
+    <title>THE OLD MONEY AI HOME CRAFT</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            color: #333;
-            text-align: center;
-            padding: 20px;
-            margin: 0;
-        }
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        h1 {
-            color: #b8860b;
-            font-size: 26px;
-            margin-bottom: 5px;
-        }
-        .tagline {
-            color: #777;
-            font-size: 14px;
-            margin-bottom: 25px;
-            text-transform: uppercase;
-        }
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        .gallery-item {
-            width: 100%;
-            height: 100px;
-            object-fit: cover;
-            border-radius: 6px;
-            border: 1px solid #ddd;
-            transition: transform 0.3s ease;
-        }
-        .gallery-item:hover {
-            transform: scale(1.05);
-        }
-        .info-box {
-            background-color: #fafafa;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: left;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-size: 15px;
-            border: 1px solid #eee;
-        }
-        .lang-select {
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 6px;
-            border: 1px solid #ccc;
-            margin-bottom: 20px;
-            width: 100%;
-            max-width: 350px;
-            cursor: pointer;
-        }
-        .btn {
-            background-color: #b8860b;
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: background 0.3s ease;
-            display: block;
-            margin: 0 auto;
-        }
-        .btn:hover {
-            background-color: #996e09;
-        }
-        @media (max-width: 600px) {
-            .image-gallery {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .gallery-item {
-                height: 150px;
-            }
-            h1 { font-size: 20px; }
-        }
+        body { font-family: sans-serif; background: #f4f4f9; text-align: center; padding: 15px; margin: 0; }
+        .container { max-width: 700px; margin: 20px auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+        h1 { color: #b8860b; font-size: 22px; margin-bottom: 5px; }
+        .tagline { color: #777; font-size: 12px; margin-bottom: 15px; text-transform: uppercase; }
+        .info-box { background: #fafafa; padding: 15px; border-radius: 6px; text-align: left; margin-bottom: 15px; line-height: 1.6; font-size: 14px; border: 1px solid #eee; }
+        .lang-select { padding: 8px; font-size: 13px; border-radius: 5px; border: 1px solid #ccc; margin-bottom: 15px; width: 100%; }
+        .btn { background: #b8860b; color: white; border: none; padding: 10px 20px; font-size: 15px; font-weight: bold; border-radius: 5px; cursor: pointer; display: block; margin: 0 auto 15px auto; width: 100%; }
+        .image-gallery { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; }
+        .gallery-item { width: 100%; height: 130px; object-fit: cover; border-radius: 5px; border: 1px solid #ddd; }
     </style>
 </head>
 <body>
-
     <div class="container">
         <h1>THE OLD MONEY AI HOME CRAFT</h1>
-        <div class="tagline">20 PREMIUM INTERIOR DESIGNS GALLERY</div
+        <div class="tagline">CLASSIC INTERIOR & DESIGNER GALLERY</div>
+        
+        <div class="info-box" id="speech-text">
+            <b>NAME:</b> MD. FARHAN<br>
+            <b>FATHER NAME:</b> ABDUL RAZZAK<br>
+            <b>MOTHER NAME:</b> SHABANA PARVEEN<br>
+            <b>ADDRESS:</b> MAHBUB CHOWK, GHORTHAMBHA, RAJDHANWAR, GIRIDIH, JHARKHAND
+        </div>
+
+        <div>
+            <select id="langPicker" class="lang-select"></select>
+        </div>
+
+        <button class="btn" onclick="speakText()">🔊 LISTEN TO DETAILS</button>
+
+        <div class="image-gallery">
+            <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6" class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace" class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1583847268964-b28dc8f51f92" class="gallery-item">
+            <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0" class="gallery-item">
+        </div>
+    </div>
+
+    <script>
+        let voices = [];
+        const langPicker = document.getElementById("langPicker");
+        function populateVoiceList() {
+            voices = window.speechSynthesis.getVoices();
+            langPicker.innerHTML = "";
+            voices.forEach((voice, index) => {
+                const option = document.createElement("option");
+                option.value = index;
+                option.textContent = `${voice.name} (${voice.lang})`;
+                langPicker.appendChild(option);
+            });
+        }
+        populateVoiceList();
+        if (window.speechSynthesis.onvoiceschanged !== undefined) {
+            window.speechSynthesis.onvoiceschanged = populateVoiceList;
+        }
+        function speakText() {
+            const text = document.getElementById("speech-text").innerText;
+            const speech = new SpeechSynthesisUtterance(text);
+            if (voices[langPicker.value]) { speech.voice = voices[langPicker.value]; }
+            window.speechSynthesis.cancel();
+            window.speechSynthesis.speak(speech);
+        }
+    </script>
+</body>
+</html>
