@@ -76,63 +76,108 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>THE OLD MONEY AI HOME CRAFT</title>
     <style>
-        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #b8860b; font-size: 24px; margin-bottom: 5px; }
-        .tagline { color: #777; font-size: 14px; margin-bottom: 20px; }
-        .info-box { background: #fafafa; border: 1px solid #ddd; padding: 20px; border-radius: 6px; margin-bottom: 20px; }
-        .info-box p { font-size: 16px; margin: 10px 0; color: #333; }
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1618221195710-dd6b41faaea6') no-repeat center center fixed; 
+            background-size: cover; 
+            margin: 0; 
+            padding: 20px; 
+            text-align: center; 
+        }
+        .container { 
+            max-width: 700px; 
+            margin: 40px auto; 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 30px; 
+            border-radius: 12px; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3); 
+        }
+        h1 { 
+            color: #b8860b; 
+            font-size: 28px; 
+            margin-bottom: 5px; 
+            letter-spacing: 1px;
+        }
+        .tagline { 
+            color: #555; 
+            font-size: 15px; 
+            margin-bottom: 25px; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .info-box { 
+            background: #fff; 
+            border: 2px solid #b8860b; 
+            padding: 20px; 
+            border-radius: 8px; 
+            margin-bottom: 30px; 
+            text-align: left; 
+            box-shadow: 0 4px 10px rgba(184, 134, 11, 0.1);
+        }
+        .info-box div { 
+            display: flex; 
+            align-items: center; 
+            margin: 15px 0; 
+            font-size: 16px; 
+            color: #333; 
+        }
+        .info-box img { 
+            width: 40px; 
+            height: 40px; 
+            margin-right: 15px; 
+            object-fit: contain; 
+            border-radius: 4px;
+        }
+        .contact-label { 
+            font-weight: bold; 
+            color: #222;
+        }
+        .contact-info {
+            margin-left: auto;
+            color: #b8860b;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .gallery { 
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            gap: 15px; 
+            margin-top: 20px; 
+        }
+        .gallery img { 
+            width: 100%; 
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.03);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>THE OLD MONEY AI HOME CRAFT</h1>
-        <div class="tagline">CLASSIC INTERIOR & DESIGNER GALLERY</div>
-        
-        <div class="info-box">
-            <p><strong>Furniture Contact:</strong> 8825133215</p>
-            <p><strong>Interior & Civil Engineering Contact:</strong> 8292306998</p>
-        </div>
-    </div>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>THE OLD MONEY AI HOME CRAFT</title>
-    <style>
-        body { font-family: sans-serif; background-color: #f4f4f4; margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 700px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h1 { color: #b8860b; font-size: 24px; margin-bottom: 5px; }
-        .tagline { color: #777; font-size: 14px; margin-bottom: 20px; }
-        .info-box { background: #fafafa; border: 1px solid #ddd; padding: 20px; border-radius: 6px; margin-bottom: 20px; text-align: left; }
-        .info-box div { display: flex; align-items: center; margin: 15px 0; font-size: 16px; color: #333; }
-        .info-box img { width: 30px; height: 30px; margin-right: 15px; object-fit: contain; }
-        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 20px; }
-        .gallery img { width: 100%; border-radius: 6px; }
-        .contact-label { font-weight: bold; margin-right: 5px; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>THE OLD MONEY AI HOME CRAFT</h1>
-        <div class="tagline">CLASSIC INTERIOR & DESIGNER GALLERY</div>
+        <div class="tagline">Classic Interior & Designer Gallery</div>
         
         <div class="info-box">
             <!-- Furniture Contact with Icon -->
             <div>
-                <img src="image_11.png" alt="Furniture Icon"> <!-- Red/Black F Icon -->
+                <img src="image_11.png" alt="Furniture Icon">
                 <span class="contact-label">Furniture Contact:</span> 
-                <span>8825133215</span>
+                <a href="tel:8825133215" class="contact-info">8825133215</a>
             </div>
             
+            <hr style="border: 0; border-top: 1px solid #eee;">
+
             <!-- Interior/Civil Contact with Icon -->
             <div>
-                <img src="image_10.png" alt="Engineering Icon"> <!-- Engineer Logo Icon -->
-                <span class="contact-label">Interior & Civil Engineering Contact:</span> 
-                <span>8292306998</span>
+                <img src="image_10.png" alt="Engineering Icon">
+                <span class="contact-label">Interior & Civil Eng:</span> 
+                <a href="tel:8292306998" class="contact-info">8292306998</a>
             </div>
         </div>
 
@@ -146,4 +191,5 @@
     </div>
 </body>
 </html>
+
 
