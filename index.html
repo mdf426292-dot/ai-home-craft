@@ -201,4 +201,91 @@ document.addEventListener('keydown', function(e) {
         return false;
     }
 });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>The Old Money AI Home Craft</title>
+    <style>
+        /* Text selection aur right-click rokne ke liye */
+        body {
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            position: relative;
+        }
 
+        /* Anti-Screenshot Blur Overlay */
+        #screenshot-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            z-index: 999999;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+        #screenshot-overlay h2 {
+            color: #ff4d4d;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        #screenshot-overlay p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Screenshot lene par yeh message aur info dikhegi -->
+    <div id="screenshot-overlay">
+        <h2>⚠️ Screenshot Restricted!</h2>
+        <p>Yeh design secure hai.<br><strong>Project:</strong> The Old Money AI Home Craft<br><strong>Founder:</strong> Farhan</p>
+    </div>
+
+    <h1>The Old Money AI Home Craft Gallery</h1>
+    <p>Yahan aapka sara content aur designs rahenge.</p>
+
+    <script>
+        // 1. Right-Click Disable
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // 2. Keyboard shortcuts block (PrintScreen, Ctrl+C, Ctrl+U, etc.)
+        document.addEventListener('keydown', function(e) {
+            if (
+                e.key === 'PrintScreen' ||
+                (e.ctrlKey && (e.key === 'c' || e.key === 'u' || e.key === 's' || e.key === 'p')) ||
+                e.key === 'F12'
+            ) {
+                e.preventDefault();
+                triggerProtection();
+            }
+        });
+
+        // 3. PrintScreen ya Window switch detect hone par overlay show karna
+        function triggerProtection() {
+            const overlay = document.getElementById('screenshot-overlay');
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 4000); // 4 seconds baad wapas normal ho jayega
+        }
+
+        // Jab user window se focus hataye ya screenshot tool kholne ki koshish kare
+        window.addEventListener('blur', function() {
+            triggerProtection();
+        });
+    </script>
+
+</body>
+</html>
