@@ -26,12 +26,12 @@
             padding: 10px;
         }
 
-        /* Mobile Phone Container with exact reference image containing the 3D house */
+        /* Mobile Phone Container with exact green fields & modern 3D house reference image */
         .phone-frame {
             width: 100%;
             max-width: 390px;
             height: 800px;
-            background: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
+            background: url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop') no-repeat center center/cover;
             border-radius: 40px;
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
             position: relative;
@@ -129,6 +129,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             max-width: 80%;
             z-index: 5;
+            display: none; /* Hidden by default to match clean reference screenshot */
         }
 
         /* Bottom Search / Prompt Input Bar */
@@ -216,15 +217,15 @@
             </button>
             <button class="nav-item" onclick="switchTab(this, 'Interior & Wall Design')">
                 <i class="fa-solid fa-palette"></i>
-                <span>Interior</span>
+                <span>Interior & Wall</span>
             </button>
             <button class="nav-item" onclick="switchTab(this, 'Furniture & Electronics')">
                 <i class="fa-solid fa-couch"></i>
-                <span>Furniture</span>
+                <span>Furniture & Electronics</span>
             </button>
             <button class="nav-item" onclick="switchTab(this, 'Swimming Pools')">
                 <i class="fa-solid fa-water-ladder"></i>
-                <span>Pools</span>
+                <span>Swimming Pools</span>
             </button>
             <button class="nav-item" onclick="switchTab(this, 'Car & Bike')">
                 <i class="fa-solid fa-car"></i>
@@ -244,7 +245,7 @@
             <button class="action-btn" onclick="triggerAction('plus')" title="Add Element">
                 <i class="fa-solid fa-plus"></i>
             </button>
-            <input type="text" id="dreamInput" class="input-field" placeholder="Type to make your dreams..." />
+            <input type="text" id="dreamInput" class="input-field" placeholder="Type to make your dreams" />
             <button class="action-btn mic-btn" onclick="triggerAction('mic')" title="Voice Input">
                 <i class="fa-solid fa-microphone"></i>
             </button>
@@ -259,36 +260,17 @@
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => item.classList.remove('active'));
             buttonElement.classList.add('active');
-            
-            const feedback = document.getElementById('feedbackText');
-            feedback.innerText = `Switched to: ${categoryName}`;
         }
 
         function triggerAction(actionType) {
-            const feedback = document.getElementById('feedbackText');
             const inputField = document.getElementById('dreamInput');
-
-            if (actionType === 'plus') {
-                feedback.innerText = "Action: Adding new element...";
-            } else if (actionType === 'mic') {
-                feedback.innerText = "Listening for voice command...";
+            if (actionType === 'mic') {
                 inputField.placeholder = "Listening...";
                 setTimeout(() => {
-                    inputField.placeholder = "Type to make your dreams...";
+                    inputField.placeholder = "Type to make your dreams";
                 }, 3000);
-            } else if (actionType === 'ai-voice') {
-                feedback.innerText = "AI Assistant activated!";
             }
         }
-
-        const inputField = document.getElementById('dreamInput');
-        inputField.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter' && inputField.value.trim() !== '') {
-                const feedback = document.getElementById('feedbackText');
-                feedback.innerText = `Processing: "${inputField.value}"`;
-                inputField.value = '';
-            }
-        });
     </script>
 </body>
 </html>
