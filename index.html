@@ -1,154 +1,151 @@
+HTML
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home Designer App</title>
-
-<!-- Google Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<title>DreamSpace AI</title>
 
 <style>
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
 }
 
-body, html {
+html, body {
   width: 100%;
   height: 100%;
   overflow: hidden;
 }
 
-/* Full Screen App Container with Exact 3D House Background */
-.app {
-  width: 100vw;
-  height: 100vh;
-  background: linear-gradient(rgba(0,29,53,0.15), rgba(0,29,53,0.15)),
-    url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=1000&auto=format&fit=crop') center/cover no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 16px 12px 24px 12px;
-  position: relative;
+body {
+  font-family: Arial, sans-serif;
 }
 
-/* Top Navigation Bar */
+.app {
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  padding: 15px 12px;
+  background:
+    linear-gradient(#001d3530,#001d3520),
+    url("background.jpg") center center / cover no-repeat;
+}
+
+/* Navigation */
+
 .nav {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   gap: 4px;
-  padding: 8px 6px;
-  background: rgba(15, 23, 42, 0.82);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: 24px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  padding: 10px 5px;
+  background: rgba(3,35,60,.85);
+  border-radius: 25px;
+  backdrop-filter: blur(15px);
 }
 
 .nav button {
   border: 1px solid transparent;
   border-radius: 16px;
-  padding: 8px 2px;
-  color: #94a3b8;
+  padding: 12px 2px;
+  color: white;
   background: transparent;
   cursor: pointer;
-  font-size: 9.5px;
-  font-weight: 500;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  transition: all 0.3s ease;
-}
-
-.nav button i {
-  font-size: 15px;
+  font-size: 11px;
 }
 
 .nav button.active {
-  border-color: #2563eb;
-  background: linear-gradient(135deg, #2563eb, #1d4ed8);
-  color: white;
-  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+  border-color: #00aaff;
+  background: #087df544;
+  box-shadow: 0 0 15px #008cff;
 }
 
 .nav button span {
   display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
+  margin-top: 9px;
 }
 
-/* Spacer to push input bar to the bottom */
+/* Full screen space */
+
 .spacer {
   flex: 1;
 }
 
-/* Bottom Input Bar */
+/* Input area */
+
 .input-box {
+  width: 100%;
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 8px 12px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
+  gap: 7px;
+  padding: 9px;
+  background: white;
   border-radius: 50px;
-  width: 100%;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  z-index: 10;
+  margin-bottom: 12px;
+  box-shadow: 0 5px 20px #00172c55;
 }
 
-.input-box input[type="text"] {
+.input-box input {
   flex: 1;
   min-width: 0;
   border: none;
   outline: none;
-  font-size: 14px;
-  background: transparent;
-  color: #1e293b;
-  padding: 6px 0;
-}
-
-.input-box input::placeholder {
-  color: #64748b;
+  font-size: 15px;
+  padding: 10px 0;
 }
 
 .input-box button {
   border: none;
   background: transparent;
-  font-size: 18px;
+  font-size: 25px;
   cursor: pointer;
-  padding: 6px;
-  color: #475569;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background 0.2s;
-}
-
-.input-box button:hover {
-  background: rgba(0, 0, 0, 0.05);
+  padding: 5px;
+  flex-shrink: 0;
 }
 
 #send {
-  background: #2563eb;
+  background: #087df5;
   color: white;
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  font-size: 16px;
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.4);
+  width: 48px;
+  height: 48px;
 }
 
-#send:hover {
-  background: #1d4ed8;
+/* Mobile adjustments */
+
+@media(max-width: 400px) {
+  .nav {
+    padding: 7px 3px;
+  }
+
+  .nav button {
+    font-size: 9px;
+    padding: 10px 1px;
+  }
+
+  .nav button span {
+    margin-top: 7px;
+  }
+
+  .input-box {
+    padding: 7px;
+    gap: 3px;
+  }
+
+  .input-box input {
+    font-size: 13px;
+  }
+
+  #send {
+    width: 43px;
+    height: 43px;
+  }
 }
 </style>
 </head>
@@ -157,66 +154,71 @@ body, html {
 
 <div class="app">
 
-  <!-- Top 6-Category Navigation Bar -->
   <nav class="nav">
+
     <button class="active" onclick="choose(this,'Rooms')">
-      <i class="fa-solid fa-house"></i>
-      <span>Rooms</span>
+      🏠<span>Rooms</span>
     </button>
 
     <button onclick="choose(this,'Interior & Wall Design')">
-      <i class="fa-solid fa-palette"></i>
-      <span>Interior</span>
+      🎨<span>Interior & Wall Design</span>
     </button>
 
     <button onclick="choose(this,'Furniture & Electronics')">
-      <i class="fa-solid fa-couch"></i>
-      <span>Furniture</span>
+      🛋️<span>Furniture & Electronics</span>
     </button>
 
     <button onclick="choose(this,'Swimming Pools')">
-      <i class="fa-solid fa-water-ladder"></i>
-      <span>Pools</span>
+      🏊<span>Swimming Pools</span>
     </button>
 
     <button onclick="choose(this,'Car & Bike')">
-      <i class="fa-solid fa-car"></i>
-      <span>Car & Bike</span>
+      🚗<span>Car & Bike</span>
     </button>
 
     <button onclick="settings()">
-      <i class="fa-solid fa-gear"></i>
-      <span>Settings</span>
+      ⚙️<span>Settings</span>
     </button>
+
   </nav>
 
   <div class="spacer"></div>
 
-  <!-- Bottom Input Bar -->
   <div class="input-box">
-    <button onclick="document.getElementById('imageFile').click()" title="Add Image">
-      <i class="fa-solid fa-plus"></i>
-    </button>
-    <input type="file" id="imageFile" hidden accept="image/*">
 
-    <input id="prompt" type="text" placeholder="Type to make your dreams">
-
-    <button onclick="voice()" title="Voice Input">
-      <i class="fa-solid fa-microphone"></i>
+    <button onclick="document.getElementById('image').click()">
+      ＋
     </button>
 
-    <button id="send" onclick="sendRequest()" title="Send">
-      <i class="fa-solid fa-wave-square"></i>
+    <input type="file" id="image" hidden accept="image/*">
+
+    <input
+      id="prompt"
+      type="text"
+      placeholder="Type to make your dreams"
+    >
+
+    <button onclick="voice()">🎙️</button>
+
+    <button id="send" onclick="sendRequest()">
+      ≋
     </button>
+
   </div>
 
 </div>
 
 <script>
+
 function choose(button, category) {
-  document.querySelectorAll('.nav button').forEach(b => b.classList.remove('active'));
+
+  document.querySelectorAll('.nav button')
+    .forEach(b => b.classList.remove('active'));
+
   button.classList.add('active');
-  document.getElementById('prompt').placeholder = 'Design my ' + category;
+
+  document.getElementById('prompt').placeholder =
+    'Design my ' + category;
 }
 
 function settings() {
@@ -224,27 +226,56 @@ function settings() {
 }
 
 function sendRequest() {
+
   const text = document.getElementById('prompt').value;
+
   if (!text.trim()) {
     alert('Please enter your design idea!');
     return;
   }
+
   alert('Your design request: ' + text);
 }
 
 function voice() {
-  const Speech = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  const Speech = window.SpeechRecognition ||
+                 window.webkitSpeechRecognition;
+
   if (!Speech) {
-    alert('Voice input is not supported in this browser.');
+    alert('Voice input is not supported.');
     return;
   }
+
   const recognition = new Speech();
   recognition.lang = 'en-IN';
+
   recognition.onresult = function(event) {
-    document.getElementById('prompt').value = event.results[0][0].transcript;
+    document.getElementById('prompt').value =
+      event.results[0][0].transcript;
   };
+
   recognition.start();
 }
+
+document.getElementById('image')
+.addEventListener('change', function(event) {
+
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function(e) {
+    document.querySelector('.app').style.backgroundImage =
+      `url("${e.target.result}")`;
+  };
+
+  reader.readAsDataURL(file);
+
+});
+
 </script>
 
 </body>
